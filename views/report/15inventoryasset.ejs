@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>Data Business Partner</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Data Business Partner</h1>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Label</th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Code</td>
+                <td><%= posts.inventory.inventory_code %></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Name</td>
+                <td><%= posts.inventory.name %></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Search Label</td>
+                <td><%= posts.inventory.label %></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Currency</td>
+                <td><%= posts.inventory.currency_id %></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Price</td>
+                <td><%= posts.inventory.selling_price %></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Discount</td>
+                <td><%= posts.inventory.selling_dsc_persent %></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Brand</td>
+                <td><%= posts.inventory.brand %></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Group</td>
+                <td><%= posts.inventory.inventory_group %></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Inventory Category</td>
+                <td><%= posts.inventory.inventory_category %></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Inventory Subcategory</td>
+                <td><%= posts.inventory.category_detail %></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>HPP Type</td>
+                <td><%= posts.inventory.hpp_type %></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Description</td>
+                <td><%= posts.inventory.description %></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Price</td>
+                <td>
+                    <ul>
+                        <% for(let i = 0; i < posts.inventory_price.length; i++) { %>
+                            <%= posts.inventory_price[i].price_name %> -
+                            <%= posts.inventory_price[i].price %>
+                        <% } %>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>UOM</td>
+                <td>
+
+                    <ul>
+                        <%= posts.inventory.uom1 %> -
+                        <%= posts.inventory.uom2 %> -
+                        <%= posts.inventory.uom3 %>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Supplier</td>
+                <td>
+
+                    <ul>
+                        <% for(let i = 0; i < posts.inventory_supplier.length; i++) { %>
+                            <%= posts.inventory_supplier[i].businesspartner_code %> -
+                            <%= posts.inventory_supplier[i].name %>
+                        <% } %>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Stock</td>
+                <td><%= posts.inventory.stock %></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Tax</td>
+                <td>
+
+                    <ul>
+                        Purchase tax <%= posts.inventory.purchase_tax %>
+                    </ul>
+                    <ul>
+                        Sell Tax <%= posts.inventory.sell_tax %>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Account</td>
+                <td>
+
+                    <ul>
+                        Sell Tax <%= posts.inventory.purchase_account %>
+                    </ul>
+                    <ul>
+                        Sell Tax <%= posts.inventory.sell_account %>
+                    </ul>
+                    <ul>
+                        Sell Tax <%= posts.inventory.hpp_account %>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Sale</td>
+                <td><%= posts.inventory.issale == 1? 'Yes': 'No' %></td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Purchase</td>
+                <td><%= posts.inventory.ispurchase == 1? 'Yes': 'No' %></td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Fix Asset</td>
+                <td><%= posts.inventory.isfix_asset == 1? 'Yes': 'No' %></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            Print On <%= posts.currentDate %>
+        </div>
+    </div>
+</body>
+
+</html>

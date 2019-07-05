@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Data Pajak</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Data Pajak</h1>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Label</th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>Name</td>
+                <td><%= posts.tax.name %></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Tax In Account</td>
+                <td><%= posts.tax.in_account %></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Tax Out Account</td>
+                <td><%= posts.tax.out_account %></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            Print On <%= posts.currentDate %>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<html>
+
+<head>
+    <title>Data Penjualan Momentum April</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        #invoice {
+            padding: 30px;
+        }
+
+        .invoice {
+            position: relative;
+            background-color: #FFF;
+            min-height: 680px;
+            padding: 15px
+        }
+
+        .invoice header {
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #3989c6
+        }
+
+        .invoice .company-details {
+            text-align: right
+        }
+
+        .invoice .company-details .name {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .contacts {
+            margin-bottom: 20px
+        }
+
+        .invoice .invoice-to {
+            text-align: left
+        }
+
+        .invoice .invoice-to .to {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .invoice-details {
+            text-align: right
+        }
+
+        .invoice .invoice-details .invoice-id {
+            margin-top: 0;
+            color: #3989c6
+        }
+
+        .invoice .invoice-details .invoice-status {
+            margin-top: 0;
+            color: red
+        }
+
+        .invoice main {
+            padding-bottom: 50px
+        }
+
+        .invoice main .thanks {
+            margin-top: -100px;
+            font-size: 2em;
+            margin-bottom: 50px
+        }
+
+        .invoice main .notices {
+            padding-left: 6px;
+            border-left: 6px solid #3989c6
+        }
+
+        .invoice main .notices .notice {
+            font-size: 1.2em
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px
+        }
+
+        .invoice table td,
+        .invoice table th {
+            padding: 15px;
+            background: #eee;
+            border-bottom: 1px solid #fff
+        }
+
+        .invoice table th {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 16px
+        }
+
+        .invoice table td h3 {
+            margin: 0;
+            font-weight: 400;
+            color: #3989c6;
+            font-size: 1.2em
+        }
+
+        .invoice table .qty,
+        .invoice table .total,
+        .invoice table .unit {
+            text-align: right;
+            font-size: 1.2em
+        }
+
+        .invoice table .no {
+            color: #fff;
+            font-size: 1.6em;
+            background: #3989c6
+        }
+
+        .invoice table .unit {
+            background: #ddd
+        }
+
+        .invoice table .total {
+            background: #3989c6;
+            color: #fff
+        }
+
+        .invoice table tbody tr:last-child td {
+            border: none
+        }
+
+        .invoice table tfoot td {
+            background: 0 0;
+            border-bottom: none;
+            white-space: nowrap;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-top: 1px solid #aaa
+        }
+
+        .invoice table tfoot tr:first-child td {
+            border-top: none
+        }
+
+        .invoice table tfoot tr:last-child td {
+            color: #3989c6;
+            font-size: 1.4em;
+            border-top: 1px solid #3989c6
+        }
+
+        .invoice table tfoot tr td:first-child {
+            border: none
+        }
+
+        .invoice footer {
+            width: 100%;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #aaa;
+            padding: 8px 0
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="invoice">
+        <div class="invoice overflow-auto">
+            <div style="min-width: 600px">
+                <header>
+                    <div class="row">
+                        <div class="col">
+                            <a target="_blank">
+                                <img 
+                                    src="http://localhost:50000/assets/company/<%= posts.companyData.company_image %>"
+                                    data-holder-rendered="true" 
+                                    style="height: 100px"
+                                />
+                            </a>
+                        </div>
+                        <div class="col company-details">
+                            <h2 class="name">
+                                <a>
+                                    <%= posts.companyData.company %>
+                                </a>
+                            </h2>
+                            <div><%= posts.companyData.description %></div>
+                            <!-- <div>(123) 456-789</div>
+                            <div>company@example.com</div> -->
+                        </div>
+                    </div>
+                </header>
+                <!-- <br> -->
+                <main>
+                    <div class="row">
+                        <div class="col">
+                            <h1 style="text-align: center">Data Penjualan Momentum Mei 2019</h1>
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">No Faktur</th>
+                                <th scope="col">Nama Barang</th>
+                                <th scope="col">Harga(Rp)</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Sub Total(Rp)</th>
+                                <th scope="col">Disc(%)</th>
+                                <th scope="col">Total(Rp)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i = 0; i < posts.detail.length; i++) { %>
+                                <tr>
+                                    <td><%= i + 1 %></td>
+                                    <td><%= posts.detail[i].transaction_date %></td>
+                                    <td scope="row"><%= posts.detail[i].pos_code %></th>
+                                    <td><%= posts.detail[i].inventory_name %></td>
+                                    <td><%= posts.detail[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %></td>
+                                    <td style="text-align:center"><%= posts.detail[i].ordered %></td>
+                                    <td>
+                                        <%= (posts.detail[i].price * posts.detail[i].ordered).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+                                    </td>
+                                    <td style="text-align:center">
+                                        <%= posts.detail[i].discount_persent > 0 ? posts.detail[i].discount_persent : '' %>
+                                        <%= posts.detail[i].discount_persent > 0 && posts.detail[i].pos_discount_persent > 0 ? ' + ' : '' %>
+                                        <%= posts.detail[i].pos_discount_persent > 0 ? posts.detail[i].pos_discount_persent : '' %>
+                                    </td>
+                                    <td>
+                                        <% let varParse = (posts.detail[i].price * posts.detail[i].ordered)-posts.detail[i].discount_amount %>
+                                        <% if(posts.detail[i].pos_discount_amount > 0) { %>
+                                            <%= (varParse - (varParse * posts.detail[i].pos_discount_persent / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+                                        <% }else{ %>
+                                            <%= (varParse).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% } %>
+                            <tr>
+                                <td colspan="7" style="text-align:right">Total Quantity</td>
+                                <td colspan="2">
+                                    <%= posts.totalQuantity %> Pcs
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" style="text-align:right">Grand Total</td>
+                                <td colspan="2">
+                                    Rp <%= posts.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm">
+                            Batam, <%= posts.currentDate %>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>
+                                Dibuat Oleh;
+                            </p>
+                            <br><br><br><br>
+                            <p>
+                                <b>Then Drianus</b>
+                            </p>
+                        </div>
+                        <!-- <div class="col-sm">
+                            <p>
+                                Diketahui Oleh;
+                            </p>
+                            <br><br><br><br><br>
+                            <p>
+                                <b>Adi Karsan</b>
+                            </p>
+                        </div> -->
+                        <!-- <div class="col-sm">
+                            <p>
+                                Diketahui Oleh;
+                            </p>
+                            <br><br><br><br><br>
+                            <p>
+                                <b>Sutino Haliman</b>
+                            </p>
+                        </div> -->
+                        <!-- <div class="col-sm">
+                            <p>
+                                Disetujui Oleh;
+                            </p>
+                            <br><br><br><br><br>
+                            <p>
+                                <b>Vic. Charles F. Marunduri, M.Th.</b>
+                            </p>
+                        </div> -->
+                    </div>
+                </main>
+            </div>      
+        </div>
+    </div>
+</body>
+
+</html>

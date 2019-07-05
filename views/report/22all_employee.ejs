@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Data Semua Employee</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Data Semua Employee</h1>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Code</th>
+                <th scope="col">Category</th>
+                <th scope="col">Title</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Birt Place</th>
+                <th scope="col">Birt date</th>
+                <th scope="col">Email</th>
+                <th scope="col">Job name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Salesman</th>
+                <th scope="col">Purchaseman</th>
+                <th scope="col">Debt Collector</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < posts.detail.length; i++) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td scope="row"><%= posts.detail[i].employee_code %></th>
+                    <td><%= posts.detail[i].employee_category %></td>
+                    <td><%= posts.detail[i].title %></td>
+                    <td><%= posts.detail[i].firstname %></td>
+                    <td><%= posts.detail[i].lastname %></td>
+                    <td><%= posts.detail[i].address %></td>
+                    <td><%= posts.detail[i].phone_number %></td>
+                    <td><%= posts.detail[i].birth_place %></td>
+                    <td><%= posts.detail[i].birth_date_formated %></td>
+                    <td><%= posts.detail[i].email %></td>
+                    <td><%= posts.detail[i].employee_job %></td>
+                    <td><%= posts.detail[i].employee_status %></td>
+                    <td><%= posts.detail[i].is_sales == 1? "Yes":"No" %></td>
+                    <td><%= posts.detail[i].is_purchasesman == 1? "Yes":"No" %></td>
+                    <td><%= posts.detail[i].is_debt_collector == 1? "Yes":"No" %></td>
+                    <td><%= posts.detail[i].description %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            Print On <%= posts.currentDate %>
+        </div>
+    </div>
+</body>
+
+</html>

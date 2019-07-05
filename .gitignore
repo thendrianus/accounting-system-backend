@@ -1,0 +1,10 @@
+node_modules/
+db_backup/
+dist/
+TS-Studio-darwin-x64/
+TS-Studio-linux-arm64/
+TS-Studio-linux-armv7l/
+TS-Studio-linux-x64/
+TS-Studio-mas-x64/
+TS-Studio-win32-ia32/
+TS-Studio-win32-x64/
